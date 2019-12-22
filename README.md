@@ -2,13 +2,13 @@
 
 Below is a template provided for use when building your README file for students.
 
-# Project Title
+# Critter Chronologer Project Starter
 
-Project description goes here.
+Critter Chronologer is an invaluable tool to help pet care providers manage their own schedules. This Software as a Service application allows businesses to keep track of pets, pet owners, and employees.
 
 ## Getting Started
 
-Instructions for how to get a copy of the project running on your local machine.
+1. Clone this repository
 
 ### Dependencies
 
