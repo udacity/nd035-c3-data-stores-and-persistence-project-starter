@@ -34,7 +34,7 @@ import java.util.stream.IntStream;
  * to the test/resources directory that specifies the datasource. It can run using an in-memory H2 instance
  * and should not try to re-use the same datasource used by the rest of the app.
  *
- * These tests should all pass on a fresh download of the starter code.
+ * These tests should all pass once the project is complete.
  */
 @Transactional
 @RunWith(SpringRunner.class)
