@@ -1,6 +1,6 @@
 package com.udacity.jdnd.course3.critter.pet;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * Represents the form that pet request and response data takes. Does not map
@@ -11,7 +11,7 @@ public class PetDTO {
     private PetType type;
     private String name;
     private long ownerId;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String notes;
 
     public PetType getType() {
@@ -38,11 +38,11 @@ public class PetDTO {
         this.ownerId = ownerId;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
