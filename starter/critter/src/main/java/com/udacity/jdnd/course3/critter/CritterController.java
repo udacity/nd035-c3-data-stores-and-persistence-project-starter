@@ -12,6 +12,6 @@ public class CritterController {
 
     @GetMapping("/test")
     public String test(){
-        return "Success";
+        return "Critter Starter installed successfully";
     }
 }
