@@ -4,17 +4,21 @@ Below is a template provided for use when building your README file for students
 
 # Critter Chronologer Project Starter
 
-Critter Chronologer is an invaluable tool to help pet care providers manage their own schedules. This Software as a Service application allows businesses to keep track of pets, pet owners, and employees.
+Critter Chronologer a Software as a Service application that provides a scheduling interface for a small business that takes care of animals. This Spring Boot project will allow users to create pets, owners, and employees, and then schedule events for employees to provide services for pets.
+
 
 ## Getting Started
 
-1. Clone this repository
-
 ### Dependencies
 
-```
-Examples here
-```
+* [IntelliJ Community Edition](https://www.jetbrains.com/idea/download) (or Ultimate) recommended 
+* [Java SE Development Kit 8+](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Maven](https://maven.apache.org/download.cgi)
+* 
+
+
+
+
 
 ### Installation
 
