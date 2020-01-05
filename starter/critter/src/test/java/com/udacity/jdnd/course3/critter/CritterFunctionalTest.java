@@ -1,4 +1,4 @@
-package com.udacity.critter;
+package com.udacity.jdnd.course3.critter;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
