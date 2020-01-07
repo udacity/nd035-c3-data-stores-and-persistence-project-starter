@@ -15,7 +15,7 @@ Critter Chronologer a Software as a Service application that provides a scheduli
 * [Java SE Development Kit 8+](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven](https://maven.apache.org/download.cgi)
 * [MySQL Server 8](https://dev.mysql.com/downloads/mysql/) (or another standalone SQL instance)
-* [Postman](https://www.getpostman.com/downloads/) (recommended)
+* [Postman](https://www.getpostman.com/downloads/)
 
 Part of this project involves configuring a Spring application to connect to an external data source. Before beginning this project, you must install a database to connect to. Here are [instructions for installing MySQL 8](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
 
