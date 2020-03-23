@@ -198,19 +198,46 @@ public class CritterFunctionalTest {
         ScheduleDTO sched1 = populateSchedule(1, 2, LocalDate.of(2019, 12, 25), Sets.newHashSet(EmployeeSkill.FEEDING, EmployeeSkill.WALKING));
         ScheduleDTO sched2 = populateSchedule(3, 1, LocalDate.of(2019, 12, 26), Sets.newHashSet(EmployeeSkill.PETTING));
 
+        //add a third schedule that shares some employees and pets with the other schedules
+        ScheduleDTO sched3 = new ScheduleDTO();
+        sched3.setEmployeeIds(sched1.getEmployeeIds());
+        sched3.setPetIds(sched2.getPetIds());
+        sched3.setActivities(Sets.newHashSet(EmployeeSkill.SHAVING, EmployeeSkill.PETTING));
+        sched3.setDate(LocalDate.of(2020, 3, 23));
+        scheduleController.createSchedule(sched3);
+
+        /*
+            We now have 3 schedule entries. The third schedule entry has the same employees as the 1st schedule
+            and the same pets/owners as the second schedule. So if we look up schedule entries for the employee from
+            schedule 1, we should get both the first and third schedule as our result.
+         */
+
+        //Employee 1 in is both schedule 1 and 3
         List<ScheduleDTO> scheds1e = scheduleController.getScheduleForEmployee(sched1.getEmployeeIds().get(0));
-        List<ScheduleDTO> scheds1p = scheduleController.getScheduleForPet(sched1.getPetIds().get(0));
-        List<ScheduleDTO> scheds1c = scheduleController.getScheduleForCustomer(userController.getOwnerByPet(sched1.getPetIds().get(0)).getId());
         compareSchedules(sched1, scheds1e.get(0));
+        compareSchedules(sched3, scheds1e.get(1));
+
+        //Employee 2 is only in schedule 2
+        List<ScheduleDTO> scheds2e = scheduleController.getScheduleForEmployee(sched2.getEmployeeIds().get(0));
+        compareSchedules(sched2, scheds2e.get(0));
+
+        //Pet 1 is only in schedule 1
+        List<ScheduleDTO> scheds1p = scheduleController.getScheduleForPet(sched1.getPetIds().get(0));
         compareSchedules(sched1, scheds1p.get(0));
+
+        //Pet from schedule 2 is in both schedules 2 and 3
+        List<ScheduleDTO> scheds2p = scheduleController.getScheduleForPet(sched2.getPetIds().get(0));
+        compareSchedules(sched2, scheds2p.get(0));
+        compareSchedules(sched3, scheds2p.get(1));
+
+        //Owner of the first pet will only be in schedule 1
+        List<ScheduleDTO> scheds1c = scheduleController.getScheduleForCustomer(userController.getOwnerByPet(sched1.getPetIds().get(0)).getId());
         compareSchedules(sched1, scheds1c.get(0));
 
-        List<ScheduleDTO> scheds2e = scheduleController.getScheduleForEmployee(sched2.getEmployeeIds().get(0));
-        List<ScheduleDTO> scheds2p = scheduleController.getScheduleForPet(sched2.getPetIds().get(0));
+        //Owner of pet from schedule 2 will be in both schedules 2 and 3
         List<ScheduleDTO> scheds2c = scheduleController.getScheduleForCustomer(userController.getOwnerByPet(sched2.getPetIds().get(0)).getId());
-        compareSchedules(sched2, scheds2e.get(0));
-        compareSchedules(sched2, scheds2p.get(0));
         compareSchedules(sched2, scheds2c.get(0));
+        compareSchedules(sched3, scheds2c.get(1));
     }
 
 
