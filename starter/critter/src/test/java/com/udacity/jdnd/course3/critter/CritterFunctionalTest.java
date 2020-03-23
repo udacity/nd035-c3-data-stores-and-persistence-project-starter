@@ -184,8 +184,8 @@ public class CritterFunctionalTest {
         List<Long> employeeList = Lists.newArrayList(employeeDTO.getId());
         Set<EmployeeSkill> skillSet =  Sets.newHashSet(EmployeeSkill.PETTING);
 
-        ScheduleDTO scheduleDTO = scheduleController.createSchedule(createScheduleDTO(
-                petList, employeeList, date, skillSet));
+        scheduleController.createSchedule(createScheduleDTO(petList, employeeList, date, skillSet));
+        ScheduleDTO scheduleDTO = scheduleController.getAllSchedules().get(0);
 
         Assertions.assertEquals(scheduleDTO.getActivities(), skillSet);
         Assertions.assertEquals(scheduleDTO.getDate(), date);

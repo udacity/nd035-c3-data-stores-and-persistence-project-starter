@@ -16,6 +16,11 @@ public class ScheduleController {
         throw new UnsupportedOperationException();
     }
 
+    @GetMapping
+    public List<ScheduleDTO> getAllSchedules() {
+        throw new UnsupportedOperationException();
+    }
+
     @GetMapping("/pet/{petId}")
     public List<ScheduleDTO> getScheduleForPet(@PathVariable long petId) {
         throw new UnsupportedOperationException();
