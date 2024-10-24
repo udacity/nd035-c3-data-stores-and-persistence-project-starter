@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +36,12 @@ public class PetService {
 
         pet.setCustomer(customer);
         Pet savedPet = petRepository.save(pet);
+
+        List<Pet> pets = new ArrayList<>();
+        pets.add(savedPet);
+        customer.setPets(pets);
+        customerRepository.save(customer);
+
         return PetMapper.toDTO(savedPet);
     }
 
