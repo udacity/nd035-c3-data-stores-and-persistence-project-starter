@@ -1,6 +1,7 @@
 package com.udacity.jdnd.course3.critter.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Table
@@ -18,7 +19,7 @@ public class Customer {
     private String notes;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Pet> pets;
+    private List<Pet> pets = new ArrayList<>();
 
     public Customer() {}
 
